@@ -1,0 +1,35 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.4.4'
+	id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.porject'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	implementation 'org.springframework.boot:spring-boot-starter-web'       // REST API 지원
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa' // JPA 지원
+	runtimeOnly 'com.h2database:h2'                                        // H2 데이터베이스 (테스트용)
+	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'                   // MariaDB 사용 시
+	compileOnly 'org.projectlombok:lombok'                                 // Lombok
+	annotationProcessor 'org.projectlombok:lombok'                         // Lombok
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
