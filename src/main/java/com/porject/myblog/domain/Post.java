@@ -1,4 +1,4 @@
-package com.porject.myblog.domein;
+package com.porject.myblog.domain;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
